@@ -1,16 +1,21 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+ROOT = Path(__file__).resolve().parents[1]
+SRC_PATH = ROOT / "src"
+if str(SRC_PATH) not in sys.path:
+    sys.path.insert(0, str(SRC_PATH))
+
 from growth_analytics.ab_test import analyze_ab_test, load_marketing_ab_data, recommendation_from_result, segment_effects
 from growth_analytics.ga4 import calculate_funnel_dropoff, load_retention_csv
 
 
-ROOT = Path(__file__).resolve().parents[1]
 RAW_AB_PATH = ROOT / "data/raw/marketing_AB.csv"
 PROCESSED_DIR = ROOT / "data/processed"
 
