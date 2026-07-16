@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "growth-analytics-case-study"
+version = "0.1.0"
+description = "A/B test, funnel, and retention analysis case study dashboard."
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "numpy",
+  "scipy",
+  "streamlit",
+  "plotly",
+  "google-cloud-bigquery",
+  "pandas-gbq",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
